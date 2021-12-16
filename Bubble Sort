@@ -1,0 +1,24 @@
+def countSwaps(intAry):
+    swaps = 0
+    for i in range(len(intAry)):
+        for j in range(len(intAry) - 1):
+            if intAry[j] > intAry[j + 1]:
+                temp = intAry[j]
+                intAry[j] = intAry[j+1]
+                intAry[j+1] = temp
+                swaps += 1
+            else:
+                continue
+    firstElement = intAry[0]
+    lastElement = intAry[-1]
+    print("Array is sorted in", swaps, "swaps.")
+    print("First Element:", firstElement)
+    print("Last Element:", lastElement)
+
+
+n = int(input())
+nums = tuple(input().split())
+ary = [0] * n
+for i in range(n):
+    ary[i] = int(nums[i])
+countSwaps(ary)
