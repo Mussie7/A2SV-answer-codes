@@ -1,0 +1,10 @@
+def dominoPiling():
+    measurements= tuple(input().split())
+    (a, b) = measurements
+    a = int(a)
+    b = int(b)
+    area = a * b
+    return area//2
+
+
+print(dominoPiling())
