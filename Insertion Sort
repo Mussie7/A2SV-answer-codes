@@ -1,0 +1,27 @@
+def insertionSort1(n, arr):
+    for i in range(n):
+        temp = arr[-1]
+        for j in range(n - 1):
+            if temp < arr[-2 - j] and j != n - 2:
+                arr[-1 - j] = arr[-2 - j]
+                for k in range(n):
+                    print(arr[k], end=" ")
+                print()
+            elif j == n - 2 and temp < arr[-2 - j]:
+                arr[-1 - j] = arr[-2 - j]
+                for k in range(n):
+                    print(arr[k], end=" ")
+                print()
+                arr[-2 - j] = temp
+            else:
+                arr[-1 - j] = temp
+                break
+    for k in range(n):
+        print(arr[k], end=" ")
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    insertionSort1(n, arr)
