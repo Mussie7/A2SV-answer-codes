@@ -1,0 +1,19 @@
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        st = s.split()
+        n = len(st)
+        result = ""
+        for j in range(n):
+            temp = st[0]
+            x = 0
+            for i in range(len(st)):
+                if int(st[i][-1]) < int(temp[-1]):
+                    x = i
+                    temp = st[i]
+            temp = st.pop(x)
+            if j != n - 1:
+                result += temp[:-1] + " "
+            else:
+                result += temp[:-1]
+        return result
+    
