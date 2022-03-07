@@ -1,0 +1,14 @@
+class Solution: 
+    # def select(self, arr, i):
+        # code here 
+    
+    def selectionSort(self, arr,n):
+        #code here
+        for i in range(n):
+            temp = arr[i]
+            for j in range(i, n):
+                if arr[j] < temp:
+                    temp, arr[j] = arr[j], temp
+                    
+            arr[i] = temp
+        return arr
