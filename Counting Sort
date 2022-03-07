@@ -1,0 +1,7 @@
+def countingSort(arr):
+    interim = [0] * 100
+    for i in range(len(arr)):
+        n = arr[i]
+        interim[n] += 1
+    return interim
+    
