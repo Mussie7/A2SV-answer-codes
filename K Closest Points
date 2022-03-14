@@ -1,0 +1,15 @@
+distance_point = {}
+    result = []
+    for point in points:
+        poi = tuple(point)
+        distance = poi[0]**2 + poi[1]**2
+        distance_point[poi] = distance
+
+    increasing_distance = sorted(distance_point.values())
+    keys = list(distance_point.keys())
+    vals = list(distance_point.values())
+    for i in range(k):
+        result.append(list(keys.pop(vals.index(increasing_distance[i]))))
+        vals.pop(vals.index(increasing_distance[i]))
+
+    return result
