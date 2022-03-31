@@ -1,0 +1,14 @@
+def countingValleys(steps, path):
+    # Write your code here
+    sea_level = 0
+    count = 0
+    for i in path:
+        current = sea_level
+        if i == "D":
+            sea_level -= 1
+        elif i == "U":
+            sea_level += 1
+        if sea_level < current and sea_level == -1:
+            count += 1
+
+    return count
