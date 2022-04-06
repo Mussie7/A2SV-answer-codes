@@ -1,0 +1,16 @@
+def flagstoneCalc(width, height, flagstone):
+
+    quantity = width // flagstone
+    if width % flagstone != 0:
+        quantity += 1
+    if height % flagstone == 0:
+        quantity *= (height // flagstone)
+    elif height % flagstone != 0:
+        quantity *= ((height // flagstone) + 1)
+
+    return quantity
+
+
+str_input = input()
+input_tuple = tuple(str_input.split())
+print(flagstoneCalc(int(input_tuple[0]), int(input_tuple[1]), int(input_tuple[2])))
