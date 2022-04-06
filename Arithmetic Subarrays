@@ -1,0 +1,24 @@
+class Solution:
+    def checkArithmeticSubarrays(self, nums: List[int], l: List[int], r: List[int]) -> List[bool]:
+        answer = []
+        for i in range(len(l)):
+            new_array = nums[l[i]:r[i]+1]
+            new_array.sort()
+            i, j = 1, len(new_array) - 1
+            difference = new_array[1] - new_array[0]
+            if len(new_array) == 2:
+                answer.append(True)
+                continue
+    
+            while i < j:
+                if (new_array[i+1] == new_array[i] + difference) and (new_array[j] == new_array[j-1] + difference):
+                    i += 1
+                    j -= 1
+                else:
+                    answer.append(False)
+                    break
+                if len(new_array) % 2 == 0 and i == j:
+                    answer.append(True)
+                elif len(new_array) % 2 != 0 and i > j:
+                    answer.append(True)
+        return answer
