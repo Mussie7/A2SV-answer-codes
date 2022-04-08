@@ -1,0 +1,37 @@
+class Solution:
+    def maxFrequency(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        i = cur = res = 0
+        for j in range(len(nums)):
+            cur += nums[j]
+            while nums[j] * (j - i + 1) - cur > k:
+                cur -= nums[i]
+                i += 1
+            res = max(res, j - i + 1)
+        return res
+
+
+# Time limit exceeding answer
+class Solution:
+    def maxFrequency(self, nums: [int], k: int) -> int:
+        nums.sort(reverse=True)
+        difference = []
+        for i in range(len(nums) - 1):
+            difference.append(nums[i] - nums[i + 1])
+        tally = []
+        while len(difference) > 0:
+            count = 1
+            temp = difference.pop(0)
+            sum_diff = temp
+            for i in range(len(difference) + 1):
+                if temp <= k:
+                    count += 1
+                    if i != len(difference):
+                        sum_diff += difference[i]
+                    temp += sum_diff
+                else:
+                    break
+            tally.append(count)
+
+        return max(tally)
+        
