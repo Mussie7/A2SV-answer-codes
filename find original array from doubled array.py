@@ -1,40 +1,24 @@
 class Solution:
-#     my original solution not fast enough
-#     def findOriginalArray(self, changed: List[int]) -> List[int]:
-#         changed.sort()
-#         original = []
-#         checked = []
-#         j = 0
-#         for i in changed:
-#             if i*2 in changed and i not in checked:
-#                 original.append(i)
-#                 checked.append(i*2)
-#             elif i in checked:
-#                 checked[j] = -1
-#                 j += 1
-#             else:
-#                 return []
-            
-#         return original
-
     def findOriginalArray(self, changed: List[int]) -> List[int]:
         changed.sort()
-        l, r = 0, 1
+        low, double = 0, 1
         result = []
-        while l < len(changed):
-            if r <= l: r = l + 1
+        while low < len(changed):
+            if double <= low:
+                double = low + 1
 
-            if changed[l] == -1:
-                l += 1
+            if changed[low] == -1:
+                low += 1
                 continue
 
-            while r < len(changed) and changed[r] != changed[l] * 2:
-                r += 1
-            if r == len(changed): return []
+            while double < len(changed) and changed[double] != changed[low] * 2:
+                double += 1
+            if double == len(changed):
+                return []
 
-            changed[r] = -1
-            result.append(changed[l])
+            changed[double] = -1
+            result.append(changed[low])
 
-            l += 1
+            low += 1
 
         return result
