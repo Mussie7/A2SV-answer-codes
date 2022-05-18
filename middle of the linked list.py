@@ -18,7 +18,7 @@ class Solution:
         
         return cur
     
-    # A better code
+    # A better code with two pointers
 #     class Solution:
 #     def middleNode(self, head: ListNode) -> ListNode:
 #         slow = fast = head
