@@ -17,3 +17,15 @@ class Solution:
             cur = cur.next
         
         return cur
+    
+    # A better code
+#     class Solution:
+#     def middleNode(self, head: ListNode) -> ListNode:
+#         slow = fast = head
+#         fast = fast.next
+#         while fast and fast.next:
+#             slow = slow.next
+#             fast = fast.next.next
+#         if fast:
+#             return slow.next
+#         return slow
