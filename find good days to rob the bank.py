@@ -35,3 +35,31 @@ class Solution:
             r += 1
         
         return output
+    
+    # A better code (real fast)
+#     class Solution:
+#         def goodDaysToRobBank(self, security: List[int], time: int) -> List[int]:
+#             if not time:
+#                 return range(len(security))
+
+#             dec = []
+#             inc = []
+#             good = 1
+#             for i in range(1, len(security)):
+#                 if security[i] <= security[i-1]:
+#                     good += 1
+#                 else:
+#                     good = 1
+#                 if good > time:
+#                     dec.append(i)
+
+#             good = 1
+#             for i in reversed(range(len(security) - 1)):
+#                 if security[i] <= security[i+1]:
+#                     good += 1
+#                 else:
+#                     good = 1
+#                 if good > time:
+#                     inc.append(i)
+
+#             return set(dec) & set(inc)
