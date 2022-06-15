@@ -1,25 +1,24 @@
 class Solution:
     #Heapify function to maintain heap property.
-    def heapify(self,arr, n, i):
-        index = 0
-        while 2*index + 1 < n - i:
-            if 2*index + 2 < n-i:
-                if arr[index] < arr[2*index+1]:
-                    if arr[2*index+1] >= arr[2*index+2]:
-                        arr[index], arr[2*index+1] = arr[2*index+1], arr[index]
-                        index = 2*index + 1
+    def heapify(self, arr, n, i):
+        while 2 * i + 1 < n:
+            if 2 * i + 2 < n:
+                if arr[i] < arr[2 * i + 1]:
+                    if arr[2 * i + 1] >= arr[2 * i + 2]:
+                        arr[i], arr[2 * i + 1] = arr[2 * i + 1], arr[i]
+                        i = 2 * i + 1
                     else:
-                        arr[index], arr[2*index+2] = arr[2*index+2], arr[index]
-                        index = 2*index + 2
-                elif arr[index] < arr[2*index+2]:
-                    arr[index], arr[2*index+2] = arr[2*index+2], arr[index]
-                    index = 2*index + 2
+                        arr[i], arr[2 * i + 2] = arr[2 * i + 2], arr[i]
+                        i = 2 * i + 2
+                elif arr[i] < arr[2 * i + 2]:
+                    arr[i], arr[2 * i + 2] = arr[2 * i + 2], arr[i]
+                    i = 2 * i + 2
                 else:
                     break
             else:
-                if arr[index] < arr[2*index+1]:
-                    arr[index], arr[2*index+1] = arr[2*index+1], arr[index]
-                    index = 2*index + 1
+                if arr[i] < arr[2 * i + 1]:
+                    arr[i], arr[2 * i + 1] = arr[2 * i + 1], arr[i]
+                    i = 2 * i + 1
                 else:
                     break
     
@@ -49,10 +48,11 @@ class Solution:
                             j = 2*j+1
                         else:
                             break
+        
 
     #Function to sort an array using Heap Sort.    
     def HeapSort(self, arr, n):
         self.buildHeap(arr,n)
         for i in range(1, n):
             arr[0], arr[-i] = arr[-i], arr[0]
-            self.heapify(arr, n, i)
+            self.heapify(arr, n-i, 0)
