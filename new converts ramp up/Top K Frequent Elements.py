@@ -7,4 +7,4 @@ class Solution:
             if len(freq_list) > k:
                 heapq.heappop(freq_list)
 
-        return [heapq.heappop(freq_list)[1] for i in range(len(freq_list))]
+        return [freq_list[i][1] for i in range(len(freq_list))]
