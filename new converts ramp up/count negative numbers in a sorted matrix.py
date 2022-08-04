@@ -7,6 +7,9 @@ class Solution:
             end = n - 1
             best = n
             
+            if grid[i][end] >= 0:
+                continue
+            
             while start <= end:
                 mid = start + (end-start)//2
                 if grid[i][mid] < 0:
