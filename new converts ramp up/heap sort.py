@@ -1,5 +1,3 @@
-import heapq
-
 class Solution:
     #Heapify function to maintain heap property.
     def heapify(self,arr, n, i):
