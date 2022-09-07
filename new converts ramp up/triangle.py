@@ -5,3 +5,5 @@ class Solution:
                 triangle[i][j] += min(triangle[i+1][j], triangle[i+1][j+1])
         
         return triangle[0][0]
+
+# the implementation on the question minimum path sum can be applied here as a more efficient algorithm
